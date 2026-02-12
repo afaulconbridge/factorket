@@ -1,0 +1,57 @@
+name: Package Mod for Factorio Portal
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick zip
+
+      - name: Create package
+        id: package
+        run: |
+          make build
+          PACKAGE_FILE=$(ls -1 *.zip | head -1)
+          echo "PACKAGE_FILE=${PACKAGE_FILE}" >> $GITHUB_OUTPUT
+          echo "✅ Package created: ${PACKAGE_FILE}"
+
+      - name: Upload to Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: actions/create-release@v1
+        id: create_release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./${{ steps.package.outputs.PACKAGE_FILE }}
+          asset_name: ${{ steps.package.outputs.PACKAGE_FILE }}
+          asset_content_type: application/zip
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ steps.package.outputs.PACKAGE_FILE }}
+          path: ${{ steps.package.outputs.PACKAGE_FILE }}
+          retention-days: 30

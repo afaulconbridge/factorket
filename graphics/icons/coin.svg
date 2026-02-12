@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- simple stylized gold coin -->
+  <defs>
+    <filter id="s" x="-50%" y="-50%" width="200%" height="200%">
+      <feOffset dx="0" dy="1" in="SourceAlpha" result="off"/>
+      <feGaussianBlur in="off" stdDeviation="1" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- coin shadow / rim -->
+  <g filter="url(#s)">
+    <ellipse cx="32" cy="32" rx="22" ry="20" fill="#b8860b"/>
+  </g>
+
+  <!-- coin face -->
+  <ellipse cx="32" cy="30" rx="20" ry="18" fill="#ffd54f" stroke="#a56b00" stroke-width="2"/>
+
+  <!-- simple symbol (stylized 'F' for Factorket / currency) -->
+  <g transform="translate(0,2)" fill="#4a2e00" font-family="sans-serif" font-weight="700" text-anchor="middle">
+    <text x="32" y="36" font-size="20" style="font-family:Verdana,Arial,sans-serif">F</text>
+  </g>
+</svg>

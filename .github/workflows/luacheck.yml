@@ -1,0 +1,23 @@
+name: Luacheck Linting
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  luacheck:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install Lua and luacheck
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y lua5.1 luarocks
+        luarocks install luacheck
+
+    - name: Run luacheck
+      run: luacheck --std lua51 *.lua prototypes/ || true

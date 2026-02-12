@@ -1,0 +1,75 @@
+name: Locale CFG Linting
+
+on:
+    push:
+        branches: [main, master]
+    pull_request:
+        branches: [main, master]
+
+jobs:
+    lint-cfg:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v3
+
+            - name: Validate locale CFG files
+              run: |
+                  python3 - <<'EOF'
+                  import os
+                  import re
+                  from collections import defaultdict
+
+                  errors = []
+
+                  # Check all .cfg files in locale directory
+                  for root, dirs, files in os.walk('locale'):
+                      for file in files:
+                          if file.endswith('.cfg'):
+                              filepath = os.path.join(root, file)
+                              with open(filepath, 'r', encoding='utf-8') as f:
+                                  keys = defaultdict(list)
+                                  section = None
+                                  
+                                  for line_num, line in enumerate(f, 1):
+                                      line = line.rstrip()
+                                      
+                                      # Skip empty lines and comments
+                                      if not line or line.startswith(';'):
+                                          continue
+                                      
+                                      # Check for section headers [section-name]
+                                      if line.startswith('[') and line.endswith(']'):
+                                          section = line
+                                          continue
+                                      
+                                      # Validate key=value format
+                                      if '=' in line:
+                                          key, value = line.split('=', 1)
+                                          key = key.strip()
+                                          
+                                          # Check for valid key format (alphanumeric, dash, underscore)
+                                          if not re.match(r'^[a-zA-Z0-9_-]+$', key):
+                                              errors.append(f"{filepath}:{line_num}: Invalid key format: '{key}'")
+                                          
+                                          # Track for duplicate detection
+                                          full_key = f"{section}.{key}" if section else key
+                                          keys[full_key].append(line_num)
+                                      else:
+                                          # Line outside section or invalid format
+                                          if section is None and line.strip():
+                                              errors.append(f"{filepath}:{line_num}: Key outside section or invalid format: '{line}'")
+                                  
+                                  # Check for duplicate keys
+                                  for key, line_nums in keys.items():
+                                      if len(line_nums) > 1:
+                                          errors.append(f"{filepath}: Duplicate key '{key}' at lines {line_nums}")
+
+                  if errors:
+                      print("❌ CFG Linting Errors Found:")
+                      for error in errors:
+                          print(f"  {error}")
+                      exit(1)
+                  else:
+                      print("✅ All .cfg files are valid!")
+                  EOF
