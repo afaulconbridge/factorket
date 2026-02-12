@@ -2,6 +2,16 @@
 
 Grow the factory by buying and selling on the open market.
 
+## Introduction
+
+Welcome to your new job as an employee! Hope the commute was good.
+
+To build your factory you must _buy_ your machines - they're highly technical devices protected by patents, so you cannot build them yourself!
+
+To earn money, you must _sell_ materials. The more materials you sell, the more coins you earn!
+
+Coins are the galactic standard currency to defeat fraud and counterfeiting. It might make transactions cumbersome sometimes, but that's a small price to pay for a true economy.
+
 ## Installation
 
 To install this mod in your Steam Factorio installation:
