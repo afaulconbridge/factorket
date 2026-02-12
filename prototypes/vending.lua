@@ -10,6 +10,23 @@ local vending_machine = table.deepcopy(data.raw["assembling-machine"]["assemblin
 vending_machine.name = "vending-machine"
 vending_machine.minable.result = "vending-machine"
 vending_machine.crafting_categories = {"vending"}
+-- Add fluid box for coin input
+vending_machine.fluid_boxes = {
+  {
+    production_type = "input",
+    pipe_covers = pipecoverspictures(),
+    pipe_picture = assembler2pipepictures(),
+    volume = 1000,
+    pipe_connections = {{flow_direction = "input", position = {0, -1}, direction = defines.direction.north}}
+  },
+  {
+    production_type = "output",
+    pipe_covers = pipecoverspictures(),
+    pipe_picture = assembler2pipepictures(),
+    volume = 1000,
+    pipe_connections = {{flow_direction = "output", position = {0, 1}, direction = defines.direction.south}}
+  }
+}
 
 local vending_item = {
   type = "item",

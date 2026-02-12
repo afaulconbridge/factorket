@@ -10,7 +10,7 @@ local iron_to_coin = {
     {type = "item", name = "iron-plate", amount = 1}
   },
   results = {
-    {type = "item", name = "coin", amount = 5}
+    {type = "fluid", name = "coin", amount = 5}
   },
   energy_required = 0.5
 }
@@ -24,7 +24,7 @@ local copper_to_coin = {
     {type = "item", name = "copper-plate", amount = 1}
   },
   results = {
-    {type = "item", name = "coin", amount = 5}
+    {type = "fluid", name = "coin", amount = 5}
   },
   energy_required = 0.5
 }
@@ -38,7 +38,7 @@ local steel_to_coin = {
     {type = "item", name = "steel-plate", amount = 1}
   },
   results = {
-    {type = "item", name = "coin", amount = 26}
+    {type = "fluid", name = "coin", amount = 26}
   },
   energy_required = 0.5
 }
@@ -49,7 +49,7 @@ local coin_to_yellow_belt = {
   category = "vending",
   enabled = true,
   ingredients = {
-    {type = "item", name = "coin", amount = 30}
+    {type = "fluid", name = "coin", amount = 30}
   },
   results = {
     {type = "item", name = "transport-belt", amount = 1}
@@ -63,7 +63,7 @@ local coin_to_yellow_splitter = {
   category = "vending",
   enabled = true,
   ingredients = {
-    {type = "item", name = "coin", amount = 235}
+    {type = "fluid", name = "coin", amount = 235}
   },
   results = {
     {type = "item", name = "splitter", amount = 1}
@@ -77,7 +77,7 @@ local coin_to_yellow_underground = {
   category = "vending",
   enabled = true,
   ingredients = {
-    {type = "item", name = "coin", amount = 175}
+    {type = "fluid", name = "coin", amount = 175}
   },
   results = {
     {type = "item", name = "underground-belt", amount = 1}
