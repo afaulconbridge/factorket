@@ -1,4 +1,3 @@
-```markdown
 # Factorket 
 
 Grow the factory by buying and selling on the open market.
