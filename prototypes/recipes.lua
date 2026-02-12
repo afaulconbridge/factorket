@@ -4,6 +4,7 @@
 local iron_to_coin = {
   type = "recipe",
   name = "iron-to-coin",
+  category = "vending",
   enabled = true,
   ingredients = {
     {type = "item", name = "iron-plate", amount = 1}
@@ -17,6 +18,7 @@ local iron_to_coin = {
 local copper_to_coin = {
   type = "recipe",
   name = "copper-to-coin",
+  category = "vending",
   enabled = true,
   ingredients = {
     {type = "item", name = "copper-plate", amount = 1}
@@ -30,6 +32,7 @@ local copper_to_coin = {
 local steel_to_coin = {
   type = "recipe",
   name = "steel-to-coin",
+  category = "vending",
   enabled = true,
   ingredients = {
     {type = "item", name = "steel-plate", amount = 1}
@@ -43,6 +46,7 @@ local steel_to_coin = {
 local coin_to_yellow_belt = {
   type = "recipe",
   name = "coin-to-yellow-belt",
+  category = "vending",
   enabled = true,
   ingredients = {
     {type = "item", name = "coin", amount = 30}
@@ -56,6 +60,7 @@ local coin_to_yellow_belt = {
 local coin_to_yellow_splitter = {
   type = "recipe",
   name = "coin-to-yellow-splitter",
+  category = "vending",
   enabled = true,
   ingredients = {
     {type = "item", name = "coin", amount = 235}
@@ -69,6 +74,7 @@ local coin_to_yellow_splitter = {
 local coin_to_yellow_underground = {
   type = "recipe",
   name = "coin-to-yellow-underground",
+  category = "vending",
   enabled = true,
   ingredients = {
     {type = "item", name = "coin", amount = 175}
