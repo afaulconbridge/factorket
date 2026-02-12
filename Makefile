@@ -18,7 +18,11 @@ render-icons:
 .PHONY: build
 build: render-icons
 	@echo "Building $(OUT)"
-	@zip -r $(OUT) info.json data.lua control.lua prototypes locale graphics README.md LICENSE >/dev/null || true
+	@mkdir -p $(MOD_NAME)
+	@cp info.json data.lua control.lua README.md LICENSE $(MOD_NAME)/ 2>/dev/null || true
+	@cp -r prototypes locale graphics $(MOD_NAME)/
+	@zip -r $(OUT) $(MOD_NAME) >/dev/null || true
+	@rm -rf $(MOD_NAME)
 	@echo "Built $(OUT)"
 
 .PHONY: clean
