@@ -8,12 +8,12 @@ local iron_to_coin = {
     ingredients = {{
         type = "item",
         name = "iron-plate",
-        amount = 1
+        amount = 10
     }},
     results = {{
         type = "fluid",
         name = "coin",
-        amount = 5
+        amount = 50
     }},
     energy_required = 0.5
 }
@@ -26,12 +26,12 @@ local copper_to_coin = {
     ingredients = {{
         type = "item",
         name = "copper-plate",
-        amount = 1
+        amount = 10
     }},
     results = {{
         type = "fluid",
         name = "coin",
-        amount = 5
+        amount = 50
     }},
     energy_required = 0.5
 }
@@ -44,21 +44,21 @@ local steel_to_coin = {
     ingredients = {{
         type = "item",
         name = "steel-plate",
-        amount = 1
+        amount = 10
     }},
     results = {{
         type = "fluid",
         name = "coin",
-        amount = 26
+        amount = 275
     }},
     energy_required = 0.5
 }
 
+-- TODO gears
+-- TODO sticks
 -- TODO green circuits
 -- TODO red circuits
 -- TODO blue circuits
--- TODO gears
--- TODO sticks
 -- TODO cables
 
 data:extend({iron_to_coin, copper_to_coin, steel_to_coin})
