@@ -2,6 +2,7 @@
 -- Recipes for buying items with coins
 -- Usually, these are a 10:1 ratio with iron plates & copper plates
 -- TODO work out lube costs
+-- belts
 data.raw.recipe["transport-belt"].category = "vending"
 data.raw.recipe["transport-belt"].ingredients = {{
     type = "fluid",
@@ -33,7 +34,12 @@ data.raw.recipe["underground-belt"].results = {{
     amount = 1
 }}
 
--- TODO loader
+data.raw.recipe["loader"].category = "vending"
+data.raw.recipe["loader"].ingredients = {{
+    type = "fluid",
+    name = "coin",
+    amount = 540
+}}
 
 data.raw.recipe["fast-transport-belt"].category = "vending"
 data.raw.recipe["fast-transport-belt"].ingredients = {{
@@ -61,7 +67,12 @@ data.raw.recipe["fast-underground-belt"].results = {{
     amount = 1
 }}
 
--- TODO fast loader
+data.raw.recipe["fast-loader"].category = "vending"
+data.raw.recipe["fast-loader"].ingredients = {{
+    type = "fluid",
+    name = "coin",
+    amount = 1355
+}}
 
 data.raw.recipe["express-transport-belt"].category = "vending"
 data.raw.recipe["express-transport-belt"].ingredients = {{
@@ -89,11 +100,17 @@ data.raw.recipe["express-underground-belt"].results = {{
     amount = 1
 }}
 
--- TODO express loader
+data.raw.recipe["express-loader"].category = "vending"
+data.raw.recipe["express-loader"].ingredients = {{
+    type = "fluid",
+    name = "coin",
+    amount = 3570 -- plus 120 lube?
+}}
 
 -- TODO inserters
 
 -- TODO assemblers
 -- TODO furnaces
+-- TODO poles, boilers, steam, solar
 
 -- TODO science
