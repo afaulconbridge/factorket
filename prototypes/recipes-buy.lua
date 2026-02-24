@@ -2,6 +2,7 @@
 -- Recipes for buying items with coins
 -- Usually, these are a 10:1 ratio with iron plates & copper plates
 -- TODO work out lube costs
+-- TODO work out plastic costs
 -- belts
 data.raw.recipe["transport-belt"].category = "vending"
 data.raw.recipe["transport-belt"].ingredients = {{
@@ -107,10 +108,82 @@ data.raw.recipe["express-loader"].ingredients = {{
     amount = 3570 -- plus 120 lube?
 }}
 
--- TODO inserters
+-- inserters
+data.raw.recipe["burner-inserter"].category = "vending"
+data.raw.recipe["burner-inserter"].ingredients = {{
+    type = "fluid",
+    name = "coin",
+    amount = 35
+}}
 
--- TODO assemblers
--- TODO furnaces
+data.raw.recipe["inserter"].category = "vending"
+data.raw.recipe["inserter"].ingredients = {{
+    type = "fluid",
+    name = "coin",
+    amount = 45
+}}
+
+data.raw.recipe["long-handed-inserter"].category = "vending"
+data.raw.recipe["long-handed-inserter"].ingredients = {{
+    type = "fluid",
+    name = "coin",
+    amount = 85
+}}
+
+data.raw.recipe["fast-inserter"].category = "vending"
+data.raw.recipe["fast-inserter"].ingredients = {{
+    type = "fluid",
+    name = "coin",
+    amount = 125
+}}
+
+data.raw.recipe["bulk-inserter"].category = "vending"
+data.raw.recipe["bulk-inserter"].ingredients = {{
+    type = "fluid",
+    name = "coin",
+    amount = 870 -- plus 2 plastic?
+}}
+
+-- assemblers
+data.raw.recipe["assembling-machine-1"].category = "vending"
+data.raw.recipe["assembling-machine-1"].ingredients = {{
+    type = "fluid",
+    name = "coin",
+    amount = 265
+}}
+data.raw.recipe["assembling-machine-2"].category = "vending"
+data.raw.recipe["assembling-machine-2"].ingredients = {{
+    type = "fluid",
+    name = "coin",
+    amount = 490
+}}
+data.raw.recipe["assembling-machine-3"].category = "vending"
+data.raw.recipe["assembling-machine-3"].ingredients = {{
+    type = "fluid",
+    name = "coin",
+    amount = 298 -- plus 40 plastic?
+}}
+
+-- furnaces
+data.raw.recipe["stone-furnace"].category = "vending"
+data.raw.recipe["stone-furnace"].ingredients = {{
+    type = "fluid",
+    name = "coin",
+    amount = 25
+}}
+data.raw.recipe["steel-furnace"].category = "vending"
+data.raw.recipe["steel-furnace"].ingredients = {{
+    type = "fluid",
+    name = "coin",
+    amount = 130
+}}
+data.raw.recipe["electric-furnace"].category = "vending"
+data.raw.recipe["electric-furnace"].ingredients = {{
+    type = "fluid",
+    name = "coin",
+    amount = 950 -- plus 10 plastic?
+}}
+
 -- TODO poles, boilers, steam, solar
 
 -- TODO science
