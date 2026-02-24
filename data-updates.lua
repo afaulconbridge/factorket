@@ -1,0 +1,6 @@
+require("prototypes.coin")
+require("prototypes.vending")
+require("prototypes.recipes-sell")
+require("prototypes.recipes-buy")
+require("prototypes.scale-machines")
+require("prototypes.scale-recipes")
