@@ -1,53 +1,99 @@
--- prototypes/recipes.lua
+-- prototypes/recipes-buy.lua
 -- Recipes for buying items with coins
 -- Usually, these are a 10:1 ratio with iron plates & copper plates
+-- TODO work out lube costs
+data.raw.recipe["transport-belt"].category = "vending"
+data.raw.recipe["transport-belt"].ingredients = {{
+    type = "fluid",
+    name = "coin",
+    amount = 15
+}}
+data.raw.recipe["transport-belt"].results = {{
+    type = "item",
+    name = "transport-belt",
+    amount = 1
+}}
 
-local coin_to_yellow_belt = {
-  type = "recipe",
-  name = "coin-to-yellow-belt",
-  category = "vending",
-  enabled = true,
-  ingredients = {
-    {type = "fluid", name = "coin", amount = 30}
-  },
-  results = {
-    {type = "item", name = "transport-belt", amount = 1}
-  },
-  energy_required = 0.5
-}
--- disable base recipe
-data.raw.recipe["transport-belt"].enabled = false
+data.raw.recipe["splitter"].category = "vending"
+data.raw.recipe["splitter"].ingredients = {{
+    type = "fluid",
+    name = "coin",
+    amount = 235
+}}
 
-local coin_to_yellow_splitter = {
-  type = "recipe",
-  name = "coin-to-yellow-splitter",
-  category = "vending",
-  enabled = true,
-  ingredients = {
-    {type = "fluid", name = "coin", amount = 235}
-  },
-  results = {
-    {type = "item", name = "splitter", amount = 1}
-  },
-  energy_required = 0.5
-}
--- disable base recipe
-data.raw.recipe["splitter"].enabled = false
+data.raw.recipe["underground-belt"].category = "vending"
+data.raw.recipe["underground-belt"].ingredients = {{
+    type = "fluid",
+    name = "coin",
+    amount = 175
+}}
+data.raw.recipe["underground-belt"].results = {{
+    type = "item",
+    name = "underground-belt",
+    amount = 1
+}}
 
-local coin_to_yellow_underground = {
-  type = "recipe",
-  name = "coin-to-yellow-underground",
-  category = "vending",
-  enabled = true,
-  ingredients = {
-    {type = "fluid", name = "coin", amount = 175}
-  },
-  results = {
-    {type = "item", name = "underground-belt", amount = 1}
-  },
-  energy_required = 0.5
-}
--- disable base recipe
-data.raw.recipe["underground-belt"].enabled = false
+-- TODO loader
 
-data:extend({ iron_to_coin, copper_to_coin, steel_to_coin, coin_to_yellow_belt, coin_to_yellow_splitter, coin_to_yellow_underground })
+data.raw.recipe["fast-transport-belt"].category = "vending"
+data.raw.recipe["fast-transport-belt"].ingredients = {{
+    type = "fluid",
+    name = "coin",
+    amount = 115
+}}
+
+data.raw.recipe["fast-splitter"].category = "vending"
+data.raw.recipe["fast-splitter"].ingredients = {{
+    type = "fluid",
+    name = "coin",
+    amount = 585
+}}
+
+data.raw.recipe["fast-underground-belt"].category = "vending"
+data.raw.recipe["fast-underground-belt"].ingredients = {{
+    type = "fluid",
+    name = "coin",
+    amount = 575
+}}
+data.raw.recipe["fast-underground-belt"].results = {{
+    type = "item",
+    name = "fast-underground-belt",
+    amount = 1
+}}
+
+-- TODO fast loader
+
+data.raw.recipe["express-transport-belt"].category = "vending"
+data.raw.recipe["express-transport-belt"].ingredients = {{
+    type = "fluid",
+    name = "coin",
+    amount = 315 -- plus 20 lube?
+}}
+
+data.raw.recipe["express-splitter"].category = "vending"
+data.raw.recipe["express-splitter"].ingredients = {{
+    type = "fluid",
+    name = "coin",
+    amount = 1585 -- plus 80 lube?
+}}
+
+data.raw.recipe["express-underground-belt"].category = "vending"
+data.raw.recipe["express-underground-belt"].ingredients = {{
+    type = "fluid",
+    name = "coin",
+    amount = 975 -- plus 20 lube?
+}}
+data.raw.recipe["express-underground-belt"].results = {{
+    type = "item",
+    name = "express-underground-belt",
+    amount = 1
+}}
+
+-- TODO express loader
+
+-- TODO inserters
+
+-- TODO assemblers
+-- TODO furnaces
+
+-- TODO science
