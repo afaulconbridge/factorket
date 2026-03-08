@@ -3,7 +3,7 @@
 local coin = {
     type = "fluid",
     name = "coin",
-    icon = "__factorket__/graphics/icons/coin.png",
+    icon = "__base__/graphics/icons/coin.png",
     icon_size = 64,
     default_temperature = 25,
     heat_capacity = "1kJ",
