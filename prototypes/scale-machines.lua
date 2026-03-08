@@ -139,3 +139,76 @@ data.raw["assembling-machine"]["assembling-machine-3"].fluid_boxes[2].pipe_conne
     direction = defines.direction.south,
     position = {0, 4}
 }}
+
+-- scale up stone & steel furnaces to 8x8
+-- Function to scale graphics layers
+local function scale_graphics_set(graphics_set, scale_factor)
+
+    if not graphics_set then
+        return
+    end
+
+    local function scale_graphics_part(part)
+        if part.scale then
+            part.scale = part.scale * scale_factor
+        end
+        if part.shift and type(part.shift) == "table" and part.shift[1] and part.shift[2] then
+            part.shift[1] = part.shift[1] * scale_factor
+            part.shift[2] = part.shift[2] * scale_factor
+        end
+    end
+
+    if graphics_set.animation and graphics_set.animation.layers then
+        for _, layer in ipairs(graphics_set.animation.layers) do
+            scale_graphics_part(layer)
+        end
+    end
+
+    if graphics_set.working_visualisations then
+        for _, vis in ipairs(graphics_set.working_visualisations) do
+            if vis.animation then
+                scale_graphics_part(vis.animation)
+            end
+        end
+    end
+
+    if graphics_set.water_reflection and graphics_set.water_reflection.pictures then
+        scale_graphics_part(graphics_set.water_reflection.pictures)
+    end
+end
+
+data.raw["furnace"]["stone-furnace"].collision_box = {{-3.9, -3.9}, {3.9, 3.9}}
+data.raw["furnace"]["stone-furnace"].selection_box = {{-4, -4}, {4, 4}}
+data.raw["furnace"]["stone-furnace"].crafting_speed = 16.0
+data.raw["furnace"]["stone-furnace"].energy_usage = "1440kW"
+scale_graphics_set(data.raw["furnace"]["stone-furnace"].graphics_set, 4)
+
+data.raw["furnace"]["steel-furnace"].collision_box = {{-3.9, -3.9}, {3.9, 3.9}}
+data.raw["furnace"]["steel-furnace"].selection_box = {{-4, -4}, {4, 4}}
+data.raw["furnace"]["steel-furnace"].crafting_speed = 32.0
+data.raw["furnace"]["steel-furnace"].energy_usage = "1440kW"
+scale_graphics_set(data.raw["furnace"]["steel-furnace"].graphics_set, 4)
+
+-- update recipes that use stone-furnace to just use stone
+data.raw.recipe["boiler"].ingredients = {{
+    type = "item",
+    name = "stone",
+    amount = 5
+}, {
+    type = "item",
+    name = "pipe",
+    amount = 4
+}}
+data.raw.recipe["burner-mining-drill"].ingredients = {{
+    type = "item",
+    name = "iron-gear-wheel",
+    amount = 3
+}, {
+    type = "item",
+    name = "stone",
+    amount = 5
+}, {
+    type = "item",
+    name = "iron-plate",
+    amount = 3
+}}
