@@ -15,7 +15,7 @@ local iron_to_coin = {
         name = "coin",
         amount = 50
     }},
-    energy_required = 0.5
+    energy_required = 1
 }
 
 local copper_to_coin = {
@@ -33,7 +33,7 @@ local copper_to_coin = {
         name = "coin",
         amount = 50
     }},
-    energy_required = 0.5
+    energy_required = 1
 }
 
 local steel_to_coin = {
@@ -51,7 +51,7 @@ local steel_to_coin = {
         name = "coin",
         amount = 275
     }},
-    energy_required = 0.5
+    energy_required = 1
 }
 
 -- TODO gears

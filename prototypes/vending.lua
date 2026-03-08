@@ -44,8 +44,8 @@ local vending_machine = {
                 height = 226,
                 frame_count = 32,
                 line_length = 8,
-                shift = util.by_pixel(0 * 3, 2 * 3),
-                scale = 0.5 * 3
+                shift = util.by_pixel(0, 2),
+                scale = 0.5
             }, {
                 filename = "__base__/graphics/entity/assembling-machine-1/assembling-machine-1-shadow.png",
                 priority = "high",
@@ -54,13 +54,13 @@ local vending_machine = {
                 line_length = 1,
                 repeat_count = 32,
                 draw_as_shadow = true,
-                shift = util.by_pixel(8.5 * 3, 5 * 3),
+                shift = util.by_pixel(8.5, 5),
                 scale = 0.5
             }}
         }
     },
     crafting_categories = {"vending"},
-    crafting_speed = 0.5,
+    crafting_speed = 1.0,
     energy_source = {
         type = "electric",
         usage_priority = "secondary-input",
@@ -123,10 +123,12 @@ local vending_item = {
 
 local vending_recipe = {
     type = "recipe",
+    category = "vending",
     name = "vending-machine",
     enabled = true,
+    hidden = false,
     ingredients = {{
-        type = "item",
+        type = "fluid",
         name = "coin",
         amount = 265
     }},
@@ -135,7 +137,7 @@ local vending_recipe = {
         name = "vending-machine",
         amount = 1
     }},
-    energy_required = 5
+    energy_required = 1
 }
 
 data:extend({vending_category, vending_machine, vending_item, vending_recipe})
